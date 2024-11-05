@@ -1,0 +1,20 @@
+pat_studie_id,episode_nr,datum_start,icpc1_code,icpc2_code,icd10_code,omschrijving
+12,6286,2007-06-13,T90.02,T90,E11,Diabetes mellitus type 2
+19,47481,2022-02-31,H71,H71,H66.0,Acute etterige otitis media
+32,50637,2022-09-27,H71.01,H71,H66.9,Otitis media acuta/myringitis
+32,49850,2022-06-11,H71,H71,H66.0,OMA bdz
+59,21390,2014-10-02,T90.02,T90,E11,Niet-insuline-afhankelijke diabetes mellitus
+63,21729,2011-11-17,T90,T90,E11.9,DM II
+76,53900,2022-01-02,U71.01,U71,N30.0,Cystitis; acuut
+95,25295,2022-12-07,H71,H71,H66.0,Otitis media OS met TV perf
+104,45740,2022-09-17,U71,U71,N30,Cystitis
+104,45212,2022-07-03,U71,U71,N30,Cystitis
+122,56641,2022-12-09,H71,H71,H66.0,Acute etterige otitis media
+122,62216,2022-11-16,H71,H71,H66.0,Acute etterige otitis media
+140,60631,2022-10-11,U71,U71,N30,"Cystitis, BRMO-drager"
+140,22357,2003-12-19,T90.02,T90,E14,Diabetes mellitus (HCW3e)groep) (CVRM)
+143,46776,2022-11-05,U71,U71,N30,Cystitis
+143,4877,2022-03-27,U71,U71,N30,Cystitis
+155,44087,1977-01-01,T90.02,T90,E11,diabetes ketenzorg (fudus 2025)
+161,36291,2022-07-07,U71,U71,N30,"Cystitis, recidiverend"
+161,35987,2022-04-26,U71,U71,N30.9,"Cystitis, niet gespecificeerd"
