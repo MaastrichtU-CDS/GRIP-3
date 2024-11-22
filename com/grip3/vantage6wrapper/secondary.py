@@ -23,6 +23,7 @@ def calc_local_Incidentie(data, target, start, *args, **kwargs):
     #And where the start falls on or after a certain date
     #E.g. how many individuals have code U71 starting at date 2022-2-2
 
+    #Disclosure control: only return a value if the dataset contains at least 10 individuals
     data[start['attribute']] = pandas.to_datetime(data[start['attribute']], errors='coerce')
     count = len(data[(data[target['attribute']] == target['value']) & (data[start['attribute']] >= start['value'])])
-    return count
+    return count if count > 9 else 0

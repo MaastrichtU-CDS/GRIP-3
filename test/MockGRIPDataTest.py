@@ -9,7 +9,7 @@ client = MockAlgorithmClient(
     datasets=[
         # Data for first organization
         [{
-            "database": current_path / "algorithm_Episodes.csv",
+            "database": current_path / "demo_combined_data_node3.csv",
             "db_type": "csv",
             "input_data": {}
         }]
@@ -25,11 +25,10 @@ org_ids = [organization["id"] for organization in organizations]
 # Run the central method on 1 node and get the results
 central_task = client.task.create(
     input_={'method': 'grip3IncidentieTest',
-            'args': [org_ids, {'attribute': 'icpc1_code', 'value': 'U71'}, {'attribute': 'datum_start', 'value': '2000-12-31'}]},
+            'args': [org_ids, {'attribute': 'episode_icpc', 'value': 'U71'}, {'attribute': 'episode_datum_start', 'value': '2000-12-31'}]},
     organizations=[org_ids[0]],
 )
 results = client.wait_for_results(central_task.get("id"))
 
-## Expected output: 28
-## Dataset 1 & 2 both contain 14 examples, dataset 3 contains 2 examples, which is below the allowed threshold
+## Expected output: 18
 print(results)

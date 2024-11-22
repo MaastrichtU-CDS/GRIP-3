@@ -9,19 +9,19 @@ client = MockAlgorithmClient(
     datasets=[
         # Data for first organization
         [{
-            "database": current_path / "df_grip3_test_node_1.csv",
+            "database": current_path / "demo_combined_data_node1.csv",
             "db_type": "csv",
             "input_data": {}
         }],
         # Data for second organization
         [{
-            "database": current_path / "df_grip3_test_node_2.csv",
+            "database": current_path / "demo_combined_data_node2.csv",
             "db_type": "csv",
             "input_data": {}
         }],
         # Data for the third organisation
         [{
-            "database": current_path / "df_grip3_test_node_3.csv",
+            "database": current_path / "demo_combined_data_node3.csv",
             "db_type": "csv",
             "input_data": {}
         }]
@@ -36,13 +36,12 @@ org_ids = [organization["id"] for organization in organizations]
 
 # Run the central method on 1 node and get the results
 central_task = client.task.create(
-    input_={'method': 'grip3Test',
-            'args': [org_ids, {'attribute': 'age', 'value': 60}, {'start': {'attribute': 'start', 'value': 2023},
-                                            'end': {'attribute': 'end', 'value': 2025}}]},
+    input_={'method': 'grip3IncidentieTest',
+            'args': [org_ids, {'attribute': 'episode_icpc', 'value': 'U71'}, {'attribute': 'episode_datum_start', 'value': '2000-12-31'}]},
     organizations=[org_ids[0]],
 )
 results = client.wait_for_results(central_task.get("id"))
 
-## Expected output: 28
-## Dataset 1 & 2 both contain 14 examples, dataset 3 contains 2 examples, which is below the allowed threshold
+## Expected output: 36
+## Dataset 1 & 2 both contain 18examples, dataset 3 contains 9 examples, which is below the allowed threshold
 print(results)
