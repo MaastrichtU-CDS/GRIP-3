@@ -87,11 +87,11 @@ print('-puntincidentie H71 per 1000 patient jaren: ' + str(results))
 
 # Vraag 3: Wat is de gemiddelde BMI van mensen met DM2 (T90 of T90.02)
 central_task = client.task.create(
-    input_={'method': 'grip3AverageBMI', 'args': [org_ids, [{'attribute': 'episode_icpc', 'value': 'T90'},
+    input_={'method': 'grip3AverageBMI', 'args': [org_ids, [{'attribute': 'episode_icpc', 'value': 'T90'},{'attribute': 'episode_icpc', 'value': 'T90.01'},
                                                        {'attribute': 'episode_icpc', 'value': 'T90.02'}]]},
     organizations=[org_ids[0]],
 )
 results = client.wait_for_results(central_task.get("id"))
 
-# Expected anwser 23
+# Expected anwser 28
 print('Average BMI: ' + str(results))
