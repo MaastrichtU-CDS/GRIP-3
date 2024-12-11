@@ -8,11 +8,10 @@ ARG PKG_NAME="com.grip3.vantage6wrapper"
 COPY . /app
 RUN pip install /app
 
-
 # Set environment variable to make name of the package available within the
 # docker image.
 ENV PKG_NAME=${PKG_NAME}
 
 # Tell docker to execute `wrap_algorithm()` when the image is run. This function
 # will ensure that the algorithm method is called properly.
-CMD poetry run python -c "from vantage6.algorithm.tools.wrap import wrap_algorithm; wrap_algorithm()"
+CMD python -c "from vantage6.algorithm.tools.wrap import wrap_algorithm; wrap_algorithm()"

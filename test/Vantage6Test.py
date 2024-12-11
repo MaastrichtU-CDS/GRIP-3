@@ -1,5 +1,4 @@
 import vantage6.client as v6client
-from client import Grip3Client
 from vantage6.client import UserClient as Client
 
 
@@ -37,14 +36,14 @@ def setup(config):
     return client
 
 
-#Config for demo enviroment that can be created using v6 dev create-demo-network
+# Config for demo enviroment that can be created using v6 dev create-demo-network
 json = {
     "collaboration": 1,
     "aggregating_organisation": 1,
     "server_url": "http://localhost",
-    "server_port": 5000,
+    "server_port": 7601,
     "server_api": "/api",
-    "username": "org_1-admin",
+    "username": "dev_admin",
     "password": "password",
     "organization_key": ""
 }
@@ -53,7 +52,7 @@ node1 = 2
 node2 = 3
 commodity_node = 2
 exclude = [5, 6]
-#Image name
+# Image name
 IMAGE = 'fvandaalen/grip3:test'
 NAME = 'grip3'
 nodes = [node1, node2]
@@ -67,13 +66,12 @@ active_nodes = active_nodes['data']
 org_ids = [n['organization']['id'] for n in active_nodes]
 print(f' Active nodes{org_ids}')
 
-task = client.task.create(collaboration=collaboration_id,
+task = client.task.create(name=NAME, image=IMAGE, description=NAME,
+                          collaboration=collaboration_id,
                           organizations=[commodity_node],
-                          name=NAME, image=IMAGE, description=NAME,
-                          input_={'method': 'grip3Test',
-                                  'args': [nodes, {'attribute': 'age', 'value': 74},
-                                           {'start': {'attribute': 'start', 'value': 2023},
-                                            'end': {'attribute': 'end', 'value': 2024}}]},
+                          input_={'method': 'grip3Incidentie',
+                                  'args': [nodes, {'attribute': 'episode_icpc', 'value': 'H71'},
+                                           {'attribute': 'episode_datum_start', 'value': '2022-01-01'}]},
                           databases=[{'label': 'default'}]
                           )
 
