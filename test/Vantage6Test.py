@@ -66,18 +66,31 @@ active_nodes = active_nodes['data']
 org_ids = [n['organization']['id'] for n in active_nodes]
 print(f' Active nodes{org_ids}')
 
+# task = client.task.create(name=NAME, image=IMAGE, description=NAME,
+#                           collaboration=collaboration_id,
+#                           organizations=[commodity_node],
+#                           input_={'method': 'grip3Incidentie',
+#                                   'args': [nodes, {'attribute': 'episode_icpc', 'value': 'H71'},
+#                                            {'attribute': 'episode_datum_start', 'value': '2022-01-01'}]},
+#                           databases=[{'label': 'default'}]
+#                           )
+#
+# result = client.wait_for_results(task['id'])
+#
+# print(result)
+
 task = client.task.create(name=NAME, image=IMAGE, description=NAME,
                           collaboration=collaboration_id,
                           organizations=[commodity_node],
-                          input_={'method': 'grip3Incidentie',
-                                  'args': [nodes, {'attribute': 'episode_icpc', 'value': 'H71'},
-                                           {'attribute': 'episode_datum_start', 'value': '2022-01-01'}]},
+                          input_={'method': 'grip3AverageBMI', 'args': [org_ids, [{'attribute': 'episode_icpc', 'value': 'T90'},{'attribute': 'episode_icpc', 'value': 'T90.01'},
+                                                       {'attribute': 'episode_icpc', 'value': 'T90.02'}]]},
                           databases=[{'label': 'default'}]
                           )
+
 
 done = False
 i = 0
 
-result = client.wait_for_results(task['id'])
+result = client.wait_for_results(task['id'])['data'][0]['result']
 
 print(result)
