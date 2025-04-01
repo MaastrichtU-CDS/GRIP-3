@@ -5,7 +5,7 @@ FROM harbor2.vantage6.ai/infrastructure/algorithm-base
 ARG PKG_NAME="com.grip3.vantage6wrapper"
 
 # install federated algorithm
-COPY . /app
+COPY ./com /app/com
 RUN pip install /app
 
 # Set environment variable to make name of the package available within the
