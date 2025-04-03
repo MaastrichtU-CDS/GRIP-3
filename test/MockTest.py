@@ -1,10 +1,15 @@
 from vantage6.algorithm.tools.mock_client import MockAlgorithmClient
 from pathlib import Path
 import os
+import sys
 
 # get path of current directory
 current_path = Path(os.getcwd())#.parent
+parent_path = current_path.parent
 current_path = os.path.abspath(current_path)
+
+# add folder to library path
+sys.path.append(str(parent_path))
 
 ## Mock client
 client = MockAlgorithmClient(
@@ -31,13 +36,6 @@ client = MockAlgorithmClient(
     # package name where main method is present
     module="com.grip3.vantage6wrapper"
 )
-
-# get parent path
-parent_path = Path(os.getcwd()).parent
-# Change directory to match path to find algorithm code
-os.chdir(parent_path)
-
-print(os.getcwd())
 
 # list mock organizations
 organizations = client.organization.list()
