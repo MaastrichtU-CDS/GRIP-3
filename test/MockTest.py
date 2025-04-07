@@ -1,27 +1,34 @@
 from vantage6.algorithm.tools.mock_client import MockAlgorithmClient
 from pathlib import Path
+import os
+import sys
 
 # get path of current directory
-current_path = Path(__file__).parent
+current_path = Path(os.getcwd())#.parent
+parent_path = current_path.parent
+current_path = os.path.abspath(current_path)
+
+# add folder to library path
+sys.path.append(str(parent_path))
 
 ## Mock client
 client = MockAlgorithmClient(
     datasets=[
         # Data for first organization
         [{
-            "database": current_path / "demo_combined_data_node1.csv",
+            "database": os.path.join(current_path, "demo_combined_data_node1.csv"),
             "db_type": "csv",
             "input_data": {}
         }],
         # Data for second organization
         [{
-            "database": current_path / "demo_combined_data_node2.csv",
+            "database": os.path.join(current_path, "demo_combined_data_node2.csv"),
             "db_type": "csv",
             "input_data": {}
         }],
         # Data for the third organisation
         [{
-            "database": current_path / "demo_combined_data_node3.csv",
+            "database": os.path.join(current_path, "demo_combined_data_node3.csv"),
             "db_type": "csv",
             "input_data": {}
         }]
