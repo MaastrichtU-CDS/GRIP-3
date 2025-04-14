@@ -13,7 +13,7 @@ RUN sudo apt install -y \
     python-is-python3 \
     build-essential
 
-RUN pip install --break-system-packages vantage6=={VANTAGE6_VERSION} vantage6-algorithm-tools=={VANTAGE6_VERSION}
+RUN pip install --break-system-packages vantage6==${VANTAGE6_VERSION} vantage6-algorithm-tools==${VANTAGE6_VERSION}
 
 # docker build -t coder_env --no-cache .
 # docker run --rm --name coder -p 8080:8080 -e PASSWORD=12345 coder_env
