@@ -8,8 +8,58 @@ algorithm
 The following needs to be installed:
 
 - Python 3.10
-- Vantage6 4.7.0
+- Vantage6 4.9.1 (to run in practice)
 - Docker
+
+## Local testing the infrastructure
+To setup a local development algorithm for Vantage6, and to use the mock client for testing purposes, the following steps will get you going.
+
+### 1.: Start local test infrastructure
+
+Open the root folder of **this repository**, and run the command `docker compose up -d`. This will create a local instance of Coder (Visual Studio Code in the Browser), including all Vantage6 dependencies.
+You can open this instance at [http://localhost:8080/?folder=/home/coder/workspace](http://localhost:8080/?folder=/home/coder/workspace) with the password `12345`.
+
+If you want to change some settings (e.g. the password), you can edit [./docker-compose.yaml](docker-compose.yaml).
+
+### 2.: Run the mock tests
+
+In the VSCode browser session, open a terminal window (using `` ctrl + ` ``) and navigate to the test folder (`cd test`).
+
+In this test folder, you can execute the python script using the following command: `python MockTest.py`.
+The result should be similar as the result below
+
+```logs
+[info ] - Initializing nodes
+info > Mocking waiting for results
+info > Mocking waiting for results
+info > Mocking waiting for results
+info > Mocking waiting for results
+- incidentie D88 per 1000 patient jaren: [0.0]
+[info ] - Initializing nodes
+info > Mocking waiting for results
+info > Mocking waiting for results
+info > Mocking waiting for results
+info > Mocking waiting for results
+- incidentie D98 per 1000 patient jaren: [0.02]
+[info ] - Initializing nodes
+info > Mocking waiting for results
+info > Mocking waiting for results
+info > Mocking waiting for results
+info > Mocking waiting for results
+- incidentie H71 per 1000 patient jaren: [0.15]
+[info ] - Initializing nodes
+info > Mocking waiting for results
+info > Mocking waiting for results
+info > Mocking waiting for results
+info > Mocking waiting for results
+-puntincidentie H71 per 1000 patient jaren: [0.07]
+[info ] - Initializing nodes
+info > Mocking waiting for results
+info > Mocking waiting for results
+info > Mocking waiting for results
+info > Mocking waiting for results
+Average BMI: [28]
+```
 
 ## Creating a demo network
 
