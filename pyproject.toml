@@ -8,11 +8,11 @@ packages = [{ include = "com", from ="."}]
 [tool.poetry.dependencies]
 python = "^3.10.0"
 requests = "^2.25.1"
-wheel = "^0.37.0"
+wheel = "^0.38.1"
 pandas = "^2.2.2"
 vantage6-algorithm-tools = "4.2.2"
 vantage6-client = "4.2.2"
-pyarrow = "^12.0.1"
+pyarrow = "^14.0.1"
 fastparquet = "^2023.7.0"
 numpy= " ^2.0.0"
 
